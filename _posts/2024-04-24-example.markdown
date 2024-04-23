@@ -1,0 +1,21 @@
+---
+layout:       post
+title:        "一个发表文章的模板，以后发表文章直接按这个来"
+subtitle:     "子标题"
+author:       "ZhangXu"
+header-style: text
+catalog:      true
+tags:
+    - Web
+    - JavaScript
+    - C
+    - C++
+    - GIS
+    - python
+---
+
+> 这是一个发表文章的模板，这里有一定的特殊样式
+
+# 一级标题
+正文
+## 二级标题
