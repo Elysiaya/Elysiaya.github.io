@@ -1,11 +1,11 @@
 # Site settings
-title: ZhangXu Blog
-SEOTitle: 张旭的博客 | ZhangXu Blog
+title: ELSA Blog
+SEOTitle: elsa的博客 | ZhangXu Blog
 header-img: img/home-bg.jpg
-email: 1784872041@qq.com
-description: "最近看了《你想活出怎样的人生》，感慨"
+email: zerofreezing@outlook.com
+description: "我拿时间都干了什么？"
 keyword: "博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, 设计"
-url: "https://huangxuan.me" # your host, for absolute URL
+# url: "https://huangxuan.me" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
@@ -15,7 +15,7 @@ future: true
 RSS: false
 # weibo_username: huxpro
 # zhihu_username: huxpro
-github_username: zhangxv0
+github_username: Elysiaya
 # twitter_username: huxpro
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
@@ -59,7 +59,7 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-disqus_username: ZhangXu
+disqus_username: elsa
 
 # Netease settings
 netease_comment: false
