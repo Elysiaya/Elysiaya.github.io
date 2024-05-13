@@ -60,4 +60,24 @@ jobs:
 
 与name同级的就是on，on用来定义哪些事件可以用来触发该工作流。可以定义单个或多个可以触发工作流的事件，或设置时间计划。最常用的就是`on: push `,当有推送到仓库的任何分支时就会触发改工作流。也可以使用多个事件，例如`on: [push, fork]`。如果指定多个事件，仅需发生其中一个事件就可触发工作流。 如果触发工作流的多个事件同时发生，将触发多个工作流运行。
 
-接下来与上面的标签平级的就是jobs，该标签可以说是最重要的一个标签，用来指定我的工作流具体干什么工作，jobs可以定义多个job，例如上述文件中定义了一个build的job，工作流被触发执行的时候就执行该job。
+与上面的标签平级的就是jobs，该标签可以说是最重要的一个标签，用来指定我的工作流具体干什么工作，jobs可以定义多个job，例如上述文件中定义了一个build的job，工作流被触发执行的时候就执行该job。每个job中包含多个steps。
+
+上述示例文件中创建了一个名为build的job，该job定义了strategy策略、runs-on定义操作系统，steps定义该脚本的每一步内容。其中定义了一个matrix矩阵，在该矩阵中定义的元素会被依次执行，后面的内容可以用`${{ matrix.configuration }}`调用。例如本次定义了debug模式和release模式，这样在后面的编译过程中就不用连续定义两个job了。
+
+steps中的每一中name确定操作的名称，该名称会在Actions执行过程中显示在信息框内，便于查看Actions执行的情况，如果出现错误，也可以便于分析和定位。
+
+```yaml
+- name: Checkout
+  uses: actions/checkout@v2
+```
+该step用于将GitHub仓库的代码签出到本地，一般每个脚本都会执行该段代码。
+```yaml
+- name: Upload dist
+  uses: actions/upload-artifact@v4
+  with:
+    name: ${{ matrix.configuration }}
+    path: ./ConsoleApp_githubActions/bin/${{ matrix.configuration }}/net8.0/*.exe
+```
+Artifact是GitHub Action存在的一个特殊仓库，可以将编译完成的文件上传到这里，一般可以用于保存编译完成的二进制文件，操作日志等需要保存的信息，Artifact内保存的文件不是永久的，注意及时下载。
+
+最后，任何技术都要用起来才能真正掌握。GitHub Actions也很难说是一项技术，看起来她更像是一种GitHub给开发者提供的一项福利，用于编译部署发布自己的内容。在这里感谢他们。
